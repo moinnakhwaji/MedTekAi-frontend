@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { Usercontext } from "../context/Usercontext";
 import Sidebar from "../components/Sidebar";
 
 const UserProfile = () => {
   const loggedInUser = JSON.parse(localStorage.getItem("userProfile"));
   const { open, setiSopen } = useContext(Usercontext);
+  console.log(loggedInUser);
 
   return (
     <>
@@ -49,19 +51,15 @@ const UserProfile = () => {
             </p>
             <p className="text-lg text-gray-300">
               <span className="font-semibold">Phone: </span>
-              {loggedInUser?.phone || "9967633748"}
-            </p>
-            <p className="text-lg text-gray-300">
-              <span className="font-semibold">DOB: </span>
-              {loggedInUser?.dob || "04/01/2005"}
+              {loggedInUser?.contact_number || "9967633748"}
             </p>
             <p className="text-lg text-gray-300">
               <span className="font-semibold">First Name: </span>
-              {"Moin"}
+              {loggedInUser?.firstname}
             </p>
             <p className="text-lg text-gray-300">
               <span className="font-semibold">Last Name: </span>
-              {"Nakhwaji"}
+              {loggedInUser?.lastname}
             </p>
             <p className="text-lg text-gray-300">
               <span className="font-semibold">Age: </span>
@@ -69,8 +67,18 @@ const UserProfile = () => {
             </p>
             <p className="text-lg text-gray-300">
               <span className="font-semibold">Gender: </span>
-              {"Male"}
+              {loggedInUser?.gender}
             </p>
+          </div>
+
+          {/* Medical Info Button */}
+          <div className="mt-6 flex justify-center">
+            <Link
+              to="/medicalinfo"
+              className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition-all duration-300"
+            >
+              view Medical Information
+            </Link>
           </div>
 
           {/* Social Icons */}

@@ -53,7 +53,7 @@ const routes = {
     },
     {
       name: "My Profile",
-      link: `/userprofile/${loggedInUser.id}`,
+      link: `/userprofile/${loggedInUser?.id}`,
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"

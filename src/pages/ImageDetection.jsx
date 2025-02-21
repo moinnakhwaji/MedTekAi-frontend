@@ -13,6 +13,11 @@ const ImageDetection = () => {
       setImage(URL.createObjectURL(files[0]));
     }
   };
+  const handlesubmit = (e)=>{
+    e.preventDefault()
+    console.log(selectedType,image)
+
+  }
 
   return (
     <>
@@ -100,6 +105,14 @@ const ImageDetection = () => {
               />
             </div>
           </div>
+          {/* Submit Button */}
+          <button
+            type="submit"
+            onClick={handlesubmit}
+            className="w-full p-3 bg-green-400 text-white rounded-lg hover:bg-green-500 transition-all duration-300">
+
+              Detect {selectedType}
+            </button>
         </div>
       </div>
     </>
