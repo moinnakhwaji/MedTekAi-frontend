@@ -4,6 +4,7 @@ import { Usercontext } from '../context/Usercontext';
 import { menuItems } from './Data';
 
 const Sidebar = () => {
+  const loggedInUser = JSON.parse(localStorage.getItem("userProfile"));
   const { open } = useContext(Usercontext);
 
   if (!open) return null;

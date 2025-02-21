@@ -3,7 +3,7 @@ import { Usercontext } from "../context/Usercontext";
 import Sidebar from "../components/Sidebar";
 
 const UserProfile = () => {
-  const loggedInUser = JSON.parse(localStorage.getItem("user"));
+  const loggedInUser = JSON.parse(localStorage.getItem("userProfile"));
   const { open, setiSopen } = useContext(Usercontext);
 
   return (
@@ -65,7 +65,7 @@ const UserProfile = () => {
             </p>
             <p className="text-lg text-gray-300">
               <span className="font-semibold">Age: </span>
-              {"18"}
+              {loggedInUser?.age}
             </p>
             <p className="text-lg text-gray-300">
               <span className="font-semibold">Gender: </span>

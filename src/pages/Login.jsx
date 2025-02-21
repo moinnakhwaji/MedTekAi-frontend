@@ -17,7 +17,7 @@ const Login = () => {
         setError("");
         try {
             await login(username, password);
-            navigate(`/userprofile/1`);
+            navigate(`/logedinhome`);
         } catch (err) {
             setError("Invalid username or password");
         } finally {

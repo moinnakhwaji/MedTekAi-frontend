@@ -17,6 +17,7 @@ export const AuthProvider = ({ children }) => {
     const login = async (username, password) => {
         try {
             const response = await axios.post("/api/login/", { username, password });
+            
             setAccessToken(response.data.access);
             setRefreshToken(response.data.refresh);
             setUser(response.data.user);
@@ -24,6 +25,10 @@ export const AuthProvider = ({ children }) => {
             localStorage.setItem("access", response.data.access);
             localStorage.setItem("refresh", response.data.refresh);
             localStorage.setItem("user", JSON.stringify(response.data.user));
+            console.log("RESPOSNE", response)
+            console.log("ACESS", response.data.access)
+            console.log("REFRESH", response.data.access)
+            console.log("USER ID", response.data.user.id)
 
             // Fetch user profile after login
             await fetchUserProfile(response.data.access, response.data.user.id);
@@ -85,34 +90,43 @@ export const AuthProvider = ({ children }) => {
 
     const fetchUserProfile = async (token, userId) => {
         try {
-            console.log("Fetching user data with token:", token);  // Log the token
-
-            // Step 1: Fetch the user details to get the profile ID
+            console.log("Fetching user data with token:", token);
+    
+            // Step 1: Fetch user details
             const userResponse = await axios.get(`/api/users/${userId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
-
-            // Extract profile id from the user response
-            const profileId = userResponse.data.profile.id;
-            console.log("Fetched Profile ID:", profileId);  // Log the profile ID
-
-            // Step 2: Fetch the profile data using the extracted profile ID
-            const profileResponse = await axios.get(`/api/profile/${profileId}/`, {
+    
+            const { role, profile } = userResponse.data;
+            console.log("User Role:", role);
+            console.log("Fetched Profile:", profile);
+    
+            if (!profile) {
+                console.error("Profile not found for user.");
+                return;
+            }
+    
+            // Step 2: Determine the profile type based on role
+            const profileEndpoint = role === "patient" ? `/api/patients/${profile}/` : `/api/doctors/${profile}/`;
+    
+            // Step 3: Fetch the specific profile data
+            const profileResponse = await axios.get(profileEndpoint, {
                 headers: { Authorization: `Bearer ${token}` },
             });
-
-            console.log("Fetched Profile Data:", profileResponse.data);  // Log the profile data
-
+    
+            console.log("Fetched Profile Data:", profileResponse.data);
+    
             // Set user data with the fetched profile
             setUser((prevUser) => ({ ...prevUser, profile: profileResponse.data }));
-
+    
             // Store the profile data in localStorage
             localStorage.setItem("userProfile", JSON.stringify(profileResponse.data));
-
+    
         } catch (error) {
             console.error("Failed to fetch user profile:", error);
         }
     };
+    
 
 
 

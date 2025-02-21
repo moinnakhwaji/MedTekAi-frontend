@@ -7,8 +7,10 @@ const routes = {
   
   export { routes };
   
-
+  const loggedInUser = JSON.parse(localStorage.getItem("userProfile"));
+  {"Moin"}
   export const menuItems = [
+    
     {
       name: "Home",
       link: "/logedinhome",
@@ -51,7 +53,7 @@ const routes = {
     },
     {
       name: "My Profile",
-      link: "/userprofile",
+      link: `/userprofile/${loggedInUser.id}`,
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
