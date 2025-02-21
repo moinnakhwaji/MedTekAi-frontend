@@ -10,7 +10,7 @@ const Sidebar = () => {
   if (!open) return null;
 
   return (
-    <div className="w-64 min-h-screen bg-zinc-900 m-2 ml-6  rounded-3xl text-white p-5 flex flex-col space-y-6">
+    <div className="w-64 min-h-screen bg-zinc-900 m-2 ml-6   text-white p-5 flex flex-col space-y-6">
       <div className="text-center">
         <h1 className="text-2xl font-bold">🤖 Health Hub</h1>
         <h3 className="text-gray-400">AI Medical Services</h3>

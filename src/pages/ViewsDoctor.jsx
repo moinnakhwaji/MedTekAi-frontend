@@ -8,9 +8,27 @@ const ViewsDoctor = () => {
   const [doctors, setDoctors] = useState([]);
  const { open, setiSopen } = useContext(Usercontext);
   useEffect(() => {
-    axios.get("/api/doctors") // Replace with your actual API endpoint
-      .then((response) => setDoctors(response.data))
-      .catch((error) => console.error("Error fetching doctors:", error));
+  
+    const fetchDoc  =  async ()=>{
+      try {
+        const response = await  axios.get("/api/doctors") // Replace with your actual API endpoint
+        if(response){
+          setDoctors(response.data);
+        }
+        console.log(response)
+  
+        
+      } catch (error) {
+        console.error("Error fetching doctors:", error);
+        console.log(error.message)
+        
+      }
+    }
+    fetchDoc();
+   
+     
+      
+      
   }, []);
 
   return (
