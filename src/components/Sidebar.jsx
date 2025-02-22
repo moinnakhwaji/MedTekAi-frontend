@@ -2,12 +2,21 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Usercontext } from '../context/Usercontext';
 import { menuItems } from './Data';
+import { useAuth } from "../AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const loggedInUser = JSON.parse(localStorage.getItem("userProfile"));
   const { open } = useContext(Usercontext);
+  const { logout } = useAuth();
+  const navigate = useNavigate(); 
 
   if (!open) return null;
+
+  const handleLogout = () => {
+    logout()
+    navigate("/login")
+}
 
   return (
     <div className="w-64 min-h-screen bg-zinc-900 m-2 ml-6   text-white p-5 flex flex-col space-y-6">
@@ -28,7 +37,7 @@ const Sidebar = () => {
       </div>
 
       {/* Logout Button */}
-      <button className="bg-green-600  hover:bg-green-700 px-3 py-2 rounded-lg font-bold w-[90%] transition">
+      <button className="bg-green-600  hover:bg-green-700 px-3 py-2 rounded-lg font-bold w-[90%] transition" onClick={handleLogout}>
         Logout
       </button>
     </div>
