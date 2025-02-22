@@ -8,9 +8,10 @@ const Hero = () => {
   <div className="relative flex flex-col items-center text-center w-full max-w-4xl">
     
     {/* Heading - Positioned closer to the robot's head */}
-    <h1 className="relative top-[50px] text-4xl font-extrabold text-white leading-tight">
-      ⚕️ Transforming Healthcare with AI-Powered Innovation
-    </h1>
+          {/* Heading - Ensure it stays visible */}
+          {/* <h1 className="text-4xl font-extrabold text-white leading-tight z-10">
+          ⚕️ Transforming Healthcare with AI-Powered Innovation
+        </h1> */}
 
     {/* Spline Element - Adjust margin to bring heading closer */}
     <div className="w-full h-[400px] mt-[-30px]">

@@ -18,6 +18,7 @@ import MedicalInfo from "./pages/MedicalInfo";
 import Loggedinhome from "./pages/Loggedinhome";
 import { AuthProvider } from './AuthContext';
 import Viewmedicalinfo from "./pages/Viewmedicalinfo";
+import RecommendedDoc from "./pages/RecommendedDoc";
 
 const App = () => {
   // const ProtectedRoute = ({ element }) => {
@@ -47,6 +48,7 @@ const App = () => {
             <Route path="/medicalinfo" element={<MedicalInfo />} />
             <Route path="/viewmedicalinfo" element={<Viewmedicalinfo />} />
             <Route path="/logedinhome" element={<Loggedinhome />} />
+            <Route path="/recommended-doctors" element={< RecommendedDoc/>} />
 
             {/* doc profile */}
             <Route path="/docprofile" element={<Createdocprofile />} />

@@ -112,6 +112,27 @@ const routes = {
       ),
     },
     {
+      name: "Recommended Doctor",
+      link: "/recommended-doctors",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          className="size-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M12 14.25V18m0 0h2.25m-2.25 0H9.75M12 3.75c-4.97 0-9 4.03-9 9a9 9 0 001.46 4.94l-1.07 3.54a1.5 1.5 0 001.93 1.93l3.54-1.07A9 9 0 1012 3.75zm0 0c-2.49 0-4.5 2.01-4.5 4.5S9.51 12.75 12 12.75s4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5z"
+          />
+        </svg>
+      ),
+    },
+    
+    {
       name: "Medical Assistant",
       link: "/chat",
       icon: (

@@ -29,58 +29,62 @@ const Login = () => {
         <>
             
 
-            <div className="bg-[#00040f] text-white font-sans min-h-screen flex items-center justify-center">
-                <div className="bg-gray-800 bg-opacity-90 w-full max-w-md p-8 rounded-xl shadow-2xl">
-                    <h1 className="text-3xl font-bold text-center mb-6 text-purple-300">Welcome Back!</h1>
+            <div className="bg-[#0a0a0a] text-[#fafafa] font-sans min-h-screen flex items-center justify-center">
+    <div className="bg-[#141414] bg-opacity-90 w-full max-w-md p-8 rounded-xl shadow-2xl">
+        <h1 className="text-3xl font-bold text-center mb-6 text-green-400">Welcome Back!</h1>
 
-                    <form className="space-y-6" onSubmit={handleSubmit}>
-                        <div>
-                            <label htmlFor="username" className="block text-sm font-medium mb-2">
-                                Username
-                            </label>
-                            <input
-                                type="text"
-                                id="username"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
-                                className="w-full bg-gray-700 border border-transparent rounded-md px-4 py-3 text-sm focus:ring-2 focus:ring-purple-500 focus:outline-none placeholder-gray-400"
-                                placeholder="Enter your username"
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="password" className="block text-sm font-medium mb-2">
-                                Password
-                            </label>
-                            <input
-                                type="password"
-                                id="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                className="w-full bg-gray-700 border border-transparent rounded-md px-4 py-3 text-sm focus:ring-2 focus:ring-purple-500 focus:outline-none placeholder-gray-400"
-                                placeholder="Enter your password"
-                                required
-                            />
-                        </div>
-                        {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
-                        <button
-                            type="submit"
-                            className="w-full bg-purple-500 text-white py-3 rounded-md hover:bg-purple-400 focus:outline-none transition duration-300 flex justify-center items-center"
-                            disabled={loading}
-                        >
-                            {loading ? <span className="spinner"></span> : "Login"}
-                        </button>
-                    </form>
-                    <div className="mt-8 text-center">
-                        <p className="text-sm text-gray-400">
-                            Don't have an account?{" "}
-                            <span onClick={() => navigate("/signin")} className="cursor-pointer text-purple-500 hover:underline">
-                                Sign Up
-                            </span>
-                        </p>
-                    </div>
-                </div>
+        <form className="space-y-6" onSubmit={handleSubmit}>
+            <div>
+                <label htmlFor="username" className="block text-sm font-medium mb-2">
+                    Username
+                </label>
+                <input
+                    type="text"
+                    id="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="w-full bg-[#1f1e24] border border-gray-700 rounded-md px-4 py-3 text-sm focus:ring-2 focus:ring-purple-500 focus:outline-none placeholder-gray-500"
+                    placeholder="Enter your username"
+                    required
+                />
             </div>
+            <div>
+                <label htmlFor="password" className="block text-sm font-medium mb-2">
+                    Password
+                </label>
+                <input
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-full bg-[#1f1e24] border border-gray-700 rounded-md px-4 py-3 text-sm focus:ring-2 focus:ring-purple-500 focus:outline-none placeholder-gray-500"
+                    placeholder="Enter your password"
+                    required
+                />
+            </div>
+            {error && <p className="text-red-500 text-center">{error}</p>}
+            <button
+                type="submit"
+                className="w-full bg-green-500 text-white py-3 rounded-md hover:bg-green-400 focus:outline-none transition duration-300 flex justify-center items-center"
+                disabled={loading}
+            >
+                {loading ? <span className="spinner"></span> : "Login"}
+            </button>
+        </form>
+        <div className="mt-8 text-center">
+            <p className="text-sm text-gray-400">
+                Don't have an account?{" "}
+                <span
+                    onClick={() => navigate("/signin")}
+                    className="cursor-pointer text-green-500 hover:underline"
+                >
+                    Sign Up
+                </span>
+            </p>
+        </div>
+    </div>
+</div>
+
             );
 
         </>

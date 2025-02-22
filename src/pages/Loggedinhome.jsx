@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
-import { Usercontext } from '../context/Usercontext';
-import Sidebar from '../components/Sidebar';
+import React, { useContext } from "react";
+import { Usercontext } from "../context/Usercontext";
+import Sidebar from "../components/Sidebar";
 
 const Loggedinhome = () => {
   const { open, setiSopen } = useContext(Usercontext);
@@ -42,11 +42,20 @@ const Loggedinhome = () => {
 
         {/* Content Section */}
         <div className="mt-6 p-6 bg-[#141414] rounded-lg shadow-lg text-center">
-          <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-600">
+          {/* AI-Themed Image */}
+          <div className="flex justify-center">
+            <img
+              src="https://source.unsplash.com/600x300/?AI,healthcare" // Replace with a relevant AI-medical image
+              alt="AI Medical Dashboard"
+              className="rounded-lg shadow-lg"
+            />
+          </div>
+
+          <h2 className="mt-6 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-600">
             Welcome to Your AI Medical Dashboard
           </h2>
           <p className="mt-2 text-gray-400">
-            Explore various AI-powered medical services designed to assist you.
+            Explore cutting-edge AI-powered medical services designed to assist you in healthcare.
           </p>
 
           {/* How to Use Section */}
@@ -77,6 +86,13 @@ const Loggedinhome = () => {
             <p className="mt-2 text-gray-400">
               Contact our support team or check the FAQ section for assistance.
             </p>
+          </div>
+
+          {/* Get Started Button */}
+          <div className="mt-6">
+            <button className="px-6 py-3 bg-green-500 hover:bg-green-600 rounded-lg text-white font-bold transition-all">
+              Get Started
+            </button>
           </div>
         </div>
       </div>
